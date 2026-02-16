@@ -47,4 +47,20 @@ class ScientificCalculatorTest {
         // Assert
         assertEquals(valueExpected, result);
     }
+
+    @Test
+    void testSquareRootNegative() {
+        // Arrange/Setup
+        String valueExpected = "Negative number";
+
+        // Act/Execute
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
+                () -> {
+                    scientificCalculator.squareRoot(-81);
+                },
+                "Deve lançar IllegalArgumentException quando receber um numero negativo.");
+
+        // Assert
+        assertEquals(valueExpected, exception.getMessage());
+    }
 }
