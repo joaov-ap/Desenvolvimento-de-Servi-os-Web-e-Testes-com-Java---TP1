@@ -16,4 +16,18 @@ class ScientificCalculatorTest {
 
         assertEquals(valueExpected, result);
     }
+
+    @Test
+    void deveSubtrairValorCorretamente() {
+        // Arrange/Setup
+        double valueExpected = 5;
+
+        ScientificCalculator sc = new ScientificCalculator();
+
+        // Act/Execute
+        double result = sc.subtract(15, 10);
+
+        // Assert
+        assertEquals(valueExpected, result);
+    }
 }
