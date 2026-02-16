@@ -79,4 +79,28 @@ class ScientificCalculatorTest {
         // Assert
         assertEquals(valueExpected, exception.getMessage());
     }
+
+    @Test
+    void testLogPrecision() {
+        // Arrange/Setup
+        double valueExpected = 1.6094;
+
+        // Act/Execute
+        double result = scientificCalculator.log(5.0);
+
+        // Assert
+        assertEquals(valueExpected, result, 0.0001);
+    }
+
+    @Test
+    void testSinPrecision() {
+        // Arrange/Setup
+        double valueExpected = 1.0;
+
+        // Act/Execute
+        double result = scientificCalculator.sin(90.0);
+
+        // Assert
+        assertEquals(valueExpected, result, 0.0001);
+    }
 }
