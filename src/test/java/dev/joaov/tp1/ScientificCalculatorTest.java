@@ -15,8 +15,10 @@ class ScientificCalculatorTest {
         scientificCalculator = new ScientificCalculator();
     }
 
+    // TESTES DE OPERAÇÕES BÁSICAS
+
     @Test
-    void testAddition() {
+    void add_DoisNumerosPositivos_RetornaSomaCorreta() {
         double valueExpected = 4;
 
         double result = scientificCalculator.add(2, 2);
@@ -25,7 +27,7 @@ class ScientificCalculatorTest {
     }
 
     @Test
-    void deveSubtrairValorCorretamente() {
+    void subtract_DoisNumeros_RetornaSubtracaoCorreta() {
         // Arrange/Setup
         double valueExpected = 5;
 
@@ -36,8 +38,10 @@ class ScientificCalculatorTest {
         assertEquals(valueExpected, result);
     }
 
+    // TESTES DE FUNÇÕES CIENTÍFICAS E PRECISÃO
+
     @Test
-    void testSquareRootPositive() {
+    void squareRoot_NumeroPositivo_RetornaRaizExata() {
         // Arrange/Setup
         double valueExpected = 9;
 
@@ -49,7 +53,33 @@ class ScientificCalculatorTest {
     }
 
     @Test
-    void testSquareRootNegative() {
+    void log_EntradaValida_DeveTerPrecisaoDecimal() {
+        // Arrange/Setup
+        double valueExpected = 1.6094;
+
+        // Act/Execute
+        double result = scientificCalculator.log(5.0);
+
+        // Assert
+        assertEquals(valueExpected, result, 0.0001);
+    }
+
+    @Test
+    void sin_NoventaGraus_RetornaUm() {
+        // Arrange/Setup
+        double valueExpected = 1.0;
+
+        // Act/Execute
+        double result = scientificCalculator.sin(90.0);
+
+        // Assert
+        assertEquals(valueExpected, result, 0.0001);
+    }
+
+    // TESTES DE ERRO E EXCEÇÕES
+
+    @Test
+    void squareRoot_NumeroNegativo_LancaExcecaoIllegalArgumentException() {
         // Arrange/Setup
         String valueExpected = "Negative number";
 
@@ -65,7 +95,7 @@ class ScientificCalculatorTest {
     }
 
     @Test
-    void testDivideByZero() {
+    void divide_PorZero_LancaExcecaoIllegalArgumentException() {
         // Arrange/Setup
         String valueExpected = "Division by zero";
 
@@ -78,29 +108,5 @@ class ScientificCalculatorTest {
 
         // Assert
         assertEquals(valueExpected, exception.getMessage());
-    }
-
-    @Test
-    void testLogPrecision() {
-        // Arrange/Setup
-        double valueExpected = 1.6094;
-
-        // Act/Execute
-        double result = scientificCalculator.log(5.0);
-
-        // Assert
-        assertEquals(valueExpected, result, 0.0001);
-    }
-
-    @Test
-    void testSinPrecision() {
-        // Arrange/Setup
-        double valueExpected = 1.0;
-
-        // Act/Execute
-        double result = scientificCalculator.sin(90.0);
-
-        // Assert
-        assertEquals(valueExpected, result, 0.0001);
     }
 }
