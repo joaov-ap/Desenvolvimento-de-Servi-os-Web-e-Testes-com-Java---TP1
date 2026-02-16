@@ -36,5 +36,15 @@ class ScientificCalculatorTest {
         assertEquals(valueExpected, result);
     }
 
+    @Test
+    void testSquareRootPositive() {
+        // Arrange/Setup
+        double valueExpected = 9;
 
+        // Act/Execute
+        double result = scientificCalculator.squareRoot(81);
+
+        // Assert
+        assertEquals(valueExpected, result);
+    }
 }
