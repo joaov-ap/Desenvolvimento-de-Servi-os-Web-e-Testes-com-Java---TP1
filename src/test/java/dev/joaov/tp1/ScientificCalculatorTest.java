@@ -63,4 +63,20 @@ class ScientificCalculatorTest {
         // Assert
         assertEquals(valueExpected, exception.getMessage());
     }
+
+    @Test
+    void testDivideByZero() {
+        // Arrange/Setup
+        String valueExpected = "Division by zero";
+
+        // Act/Execute
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
+                () -> {
+                    scientificCalculator.divide(5, 0);
+                },
+                "Deve lançar IllegalArgumentException quando receber o valor 0.");
+
+        // Assert
+        assertEquals(valueExpected, exception.getMessage());
+    }
 }
