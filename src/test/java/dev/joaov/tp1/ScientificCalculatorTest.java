@@ -1,18 +1,25 @@
 package dev.joaov.tp1;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class ScientificCalculatorTest {
 
+    private ScientificCalculator scientificCalculator;
+
+    @BeforeEach
+    void setup() {
+        scientificCalculator = new ScientificCalculator();
+    }
+
     @Test
     void testAddition() {
         double valueExpected = 4;
 
-        ScientificCalculator sc = new ScientificCalculator();
-        double result = sc.add(2, 2);
+        double result = scientificCalculator.add(2, 2);
 
         assertEquals(valueExpected, result);
     }
@@ -22,12 +29,12 @@ class ScientificCalculatorTest {
         // Arrange/Setup
         double valueExpected = 5;
 
-        ScientificCalculator sc = new ScientificCalculator();
-
         // Act/Execute
-        double result = sc.subtract(15, 10);
+        double result = scientificCalculator.subtract(15, 10);
 
         // Assert
         assertEquals(valueExpected, result);
     }
+
+
 }
